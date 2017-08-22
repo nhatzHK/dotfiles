@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+# Send custom info for the top bar
+# Relies on the script provided by i3blocks
+
+# If charging
+if `acpi | grep -q Charging` ; then
+    echo $( /usr/lib/i3blocks/battery | sed s/[0-9]*/\n/)
+fi

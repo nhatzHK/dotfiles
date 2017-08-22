@@ -1,0 +1,93 @@
+nhatz_session() {
+	a=0
+	while [ $a == 0 ]
+	do
+cat << EOF
+Que queres hacer?
+[ u ] Update
+[ o ] Autoremove
+[ k ] List Available Updates
+[ g ] Git
+[ w ] Wifi
+[ s ] Stack Overflow
+[ c ] Compton
+[ r ] Reboot
+[ q ] End Session
+EOF
+        read -n 1 OPTION
+        printf "\n"
+        clear;
+        case $OPTION in
+            U|u)
+                pacaur -Syu;
+            ;;
+            O|o)
+                pac_orphans;
+            ;;
+          G|g)
+                cd /home/nhatz/Code/GitHub;
+                a=1
+            ;;
+            W|w)
+                wifi_home;
+            ;;
+            K|k)
+                checkupdates;
+                cower -u
+            ;;
+            S|s)
+                read -p ":> " query;
+                socli $query | less
+            ;;
+            C|c)
+                compton_toggle;
+            ;;
+            R|r)
+                sudo reboot;
+            ;;
+            Q|q|*)
+                a=1
+            ;;
+        esac
+
+        [ $a == 0 ] && read -n 1 -p "Press any key to continue " VAR
+        case $VAR in
+            Q|q)
+                a=1
+            ;;
+        esac
+
+        clear
+    done
+}
+
+compton_toggle () {
+cat << EOF
+Que queres hacer?
+[ r ] Run compton
+[ k ] killall compton
+EOF
+    read -n 1 ACTION
+    printf "\n"
+    clear;
+    case $ACTION in
+        R|r)
+            killall compton;
+            compton --config $HOME/dotfiles/compton/.config/compton.conf & disown
+        ;;
+        K|k)
+            killall compton;
+        ;;
+        *)
+        ;;
+    esac
+}
+
+new_window () {
+    # Commands to be executed before the prompt is displayed
+    # Save current working dir
+    PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
+
+    # Change to saved working dir
+    [[ -f "${HOME}/.cwd" ]] && cd "$(< ${HOME}/.cwd)"
+}

@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+if `xset q | grep -q "timeout:  0"`; then
+    exit 0
+else
+    exit 1
+fi

@@ -1,0 +1,9 @@
+# Vim files
+*~
+.viminfo
+.vim/
+*.save
+
+# Bash files
+.bash_history
+.bash_logout
