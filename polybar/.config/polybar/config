@@ -254,8 +254,8 @@ label-disconnected-foreground = ${colors.red}
 type = internal/date
 interval = 1
 
-date = %s
-date-alt = %c
+date = %c
+date-alt = %s
 
 format-prefix =
 format-prefix-foreground = ${colors.white}

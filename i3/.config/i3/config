@@ -39,10 +39,10 @@ bindsym $alt+Return exec termite --directory="$(xcwd)" & disown
 bindsym $mod+Shift+q kill
 
 # i3-lock
-bindsym $mod+Shift+x exec $HOME/dotfiles/i3/.config/i3/lock.sh
+bindsym $mod+x exec $HOME/.config/i3/lock.sh
 
-#dmenu
-bindsym $mod+d exec rofi -show drun -lines 5 -eh 2 -width 70 -padding 10 -opacity "90" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+#bindsym $mod+d exec rofi -show drun -lines 5 -eh 2 -width 70 -padding 10 -opacity "90" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+bindsym $mod+d exec "rofi -combi-modi  window,drun,run -show combi -modi combi"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -138,7 +138,10 @@ bindsym $alt+Shift+h move container to workspace prev
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-
+# reboot with new kernel
+bindsym $mod+Shift+s exec sudo systemctl kexec
+# reload current bar
+bindsym $mod+Shift+p exec killall polybar; exec "polybar -r shadow &"
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
@@ -180,15 +183,16 @@ client.urgent 		    $urgent-bg-color 	    $urgent-bg-color 	$text-color
 ## Startup ##
 
 # Wallpaper; Polybar
-exec_always killall polybar; /usr/bin/wal -t -i $HOME/Pictures/Wallpapers -o $HOME/dotfiles/polybar/.config/polybar/launch.sh
-bindsym $alt+r exec killall polybar; exec /usr/bin/wal -t -i $HOME/dotfiles/i3/.config/i3/wallpaper -o $HOME/dotfiles/polybar/.config/polybar/launch.sh
-bindsym $alt+Shift+r exec killall polybar; exec /usr/bin/wal -t -i $HOME/Pictures/Wallpapers -o $HOME/dotfiles/polybar/.config/polybar/launch.sh
+exec_always killall polybar; /usr/bin/wal -t -i $HOME/Pictures/Wallpapers -o $HOME/.config/polybar/launch.sh
+bindsym $alt+r exec killall polybar; exec /usr/bin/wal -t -i $HOME/.config/i3/wallpaper -o $HOME/dotfiles/polybar/.config/polybar/launch.sh
+bindsym $alt+Shift+r exec killall polybar; exec /usr/bin/wal -t -i $HOME/Pictures/Wallpapers -o $HOME/.config/polybar/launch.sh
+bindsym $alt+Shift+b exec killall polybar; exec $HOME/.config/polybar/launch.sh
 
 # Tap to click
 exec xinput set-prop 11 277 1    # Activate tap to click
 
 # Compton
-exec_always killall compton; compton --config $HOME/dotfiles/compton/.config/compton.conf
+exec_always killall compton; compton --config $HOME/.config/compton.conf
 
 # Launch apps
 exec firefox
@@ -233,8 +237,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightnes
 bindsym XF86AudioPlay exec playerctl play-pause # f5
 bindsym XF86AudioNext exec playerctl next # f6
 bindsym XF86AudioPrev exec playerctl previous #f4
-# bindsym $mod+XF86AudioNext exec playerctl position +1
-# bindsym $mod+XF86AudioPrev exec playerctl position -1
+bindsym $mod+XF86AudioNext exec playerctl position 10+
+bindsym $mod+XF86AudioPrev exec playerctl position 10-
 
 #
 # Screenshot
@@ -247,7 +251,7 @@ bindsym $mod+Print exec $HOME/dotfiles/i3/.config/i3/screenshot/selection
 bindsym Print exec $HOME/dotfiles/i3/.config/i3/screenshot/screen
 
 # Gaps
-gaps outer 2
+# gaps outer 2
 gaps inner 4
 
 # Screensaver toggle
