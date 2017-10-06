@@ -118,4 +118,4 @@ let g:powerline_pycmd="py3"
 set ls=2
 
 " Do what I mean dammit
-" command DWIM w !sudo tee % >/dev/null
+command DWIM w !sudo tee % >/dev/null
