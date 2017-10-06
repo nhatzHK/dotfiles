@@ -403,7 +403,7 @@ label = "%output:0:30%"
 [module/pomodoro]
 type = custom/script
 ; Use pomodoro glyphs in Nerd fonts
-exec = pymodoro --break-prefix " " --pomodoro-prefix " " --pomodoro  --empty  --break  --length 5
+exec = pymodoro -sp $HOME/Music/Ressources/pomodoro_end.wav -sb $HOME/Music/Ressources/break_end.waav -st $HOME/Music/Ressources/clock_tick.wav --tick --break-prefix " " --pomodoro-prefix " " --pomodoro  --empty  --break  --length 5
 ; Use default symbols
 label = %output%
 tail = true
