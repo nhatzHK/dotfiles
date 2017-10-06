@@ -33,7 +33,7 @@ floating_modifier $mod
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+Return exec termite --title="Nhatz Session" --exec='bash -ci "nhatz_session"' &
 # Start a new terminal in same directory as focused term
-bindsym $alt+Return exec termite --directory="$(xcwd)" & disown 
+bindsym $alt+Shift+Return exec termite --directory="$(xcwd)" & disown 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -139,7 +139,7 @@ bindsym $alt+Shift+h move container to workspace prev
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # reboot with new kernel
-bindsym $mod+Shift+s exec sudo systemctl kexec
+bindsym $mod+Shift+s exec systemctl kexec
 # reload current bar
 bindsym $mod+Shift+p exec killall polybar; exec "polybar -r shadow &"
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -192,7 +192,7 @@ bindsym $alt+Shift+b exec killall polybar; exec $HOME/.config/polybar/launch.sh
 exec xinput set-prop 11 277 1    # Activate tap to click
 
 # Compton
-exec_always killall compton; compton --config $HOME/.config/compton.conf
+exec killall compton; compton --config $HOME/.config/compton.conf
 
 # Launch apps
 exec firefox
@@ -245,18 +245,18 @@ bindsym $mod+XF86AudioPrev exec playerctl position 10-
 #
 
 # Capture selected windows
-bindsym $mod+Print exec $HOME/dotfiles/i3/.config/i3/screenshot/selection
+bindsym $mod+Print exec $HOME/.config/i3/screenshot/selection
 
 # Capture whole screen
-bindsym Print exec $HOME/dotfiles/i3/.config/i3/screenshot/screen
+bindsym Print exec $HOME/.config/i3/screenshot/screen
 
 # Gaps
 # gaps outer 2
 gaps inner 4
 
 # Screensaver toggle
-bindsym $alt+s exec $HOME/dotfiles/i3/.config/i3/toggle_screensaver
+bindsym $alt+s exec $HOME/.config/i3/toggle_screensaver
 
 # Screen layout
-bindsym $alt+y exec $HOME/dotfiles/nhatz/.config/nhatz/screenlayout/edp_hdmi.sh
-bindsym $alt+Shift+y exec $HOME/dotfiles/nhatz/.config/nhatz/screenlayout/default.sh
+bindsym $alt+y exec $HOME/.config/nhatz/screenlayout/edp_hdmi.sh
+bindsym $alt+Shift+y exec $HOME/.config/nhatz/screenlayout/default.sh
