@@ -55,6 +55,12 @@ export PATH="$PATH:/opt:/home/nhatz/.gem/ruby/2.4.0/bin:/home/nhatz/.local/bin"
 
 export EDITOR=vim
 
+export HISTSIZE=1000
+export HISTFILESIZE=100000
+export HISTCONTROL=ignorespace
+export HISTTIMEFORMAT='%s'
+shopt -s histappend
+
 # Import colorscheme from 'wal'
 (wal -r &)
 
