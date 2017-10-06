@@ -1,2 +1,3 @@
 #!/usr/bin/bash
-maim -su | convert - \( +clone -background black -shadow 80x20+0+15 \) +swap -background transparent -layers merge +repage png:- | xclip -selection clipboard -t image/png
+#maim -su | convert - \( +clone -background black -shadow 80x20+0+15 \) +swap -background transparent -layers merge +repage png:- | xclip -selection clipboard -t image/png
+maim -su | xclip -selection clipboard -t image/png
