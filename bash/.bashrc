@@ -57,7 +57,7 @@ export EDITOR=vim
 
 export HISTSIZE=1000
 export HISTFILESIZE=100000
-export HISTCONTROL=ignorespace
+export HISTCONTROL=ignoreboth
 export HISTTIMEFORMAT='%s'
 shopt -s histappend
 
