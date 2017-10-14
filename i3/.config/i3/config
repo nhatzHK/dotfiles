@@ -192,7 +192,7 @@ bindsym $alt+Shift+b exec killall polybar; exec $HOME/.config/polybar/launch.sh
 exec xinput set-prop 11 277 1    # Activate tap to click
 
 # Compton
-exec killall compton; compton --config $HOME/.config/compton.conf
+exec_always killall compton; compton --config $HOME/.config/compton.conf
 
 # Launch apps
 exec firefox
