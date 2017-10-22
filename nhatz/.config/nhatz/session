@@ -7,8 +7,7 @@ Que queres hacer?
 [ u ] Update
 [ o ] Autoremove
 [ k ] List Available Updates
-[ g ] Git
-[ w ] Wifi
+[ w ] Feh current wallpaper
 [ s ] Stack Overflow
 [ c ] Compton
 [ r ] Reboot
@@ -24,16 +23,14 @@ EOF
             O|o)
                 pac_orphans;
             ;;
-          G|g)
-                cd /home/nhatz/Code/GitHub;
-                a=1
-            ;;
-            W|w)
-                wifi_home;
-            ;;
             K|k)
                 checkupdates;
                 cower -u
+            ;;
+            W|w)
+                feh -xdpq --scale-down $(cat $HOME/.cache/wal/wal);
+                cat $HOME/.cache/wal/wal;
+                printf "\n";
             ;;
             S|s)
                 read -p ":> " query;
