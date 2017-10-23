@@ -1,0 +1,11 @@
+[options]
+font = Source Code Pro for Powerline 10
+
+[colors]
+background = rgba(0, 0, 0, 0.5)
+foreground = rgba(230, 230, 230, 1.0)
+
+[hints]
+border = #3f3f3f
+border_width = 0.5
+roundness = 2.0
