@@ -71,7 +71,7 @@ fi
 
 # Custom session file
 if [ -f ~/.config/nhatz/session ]; then
-    . ~/dotfiles/nhatz/.config/nhatz/session
+    . ~/.config/nhatz/session
 fi
 
 export THEME=~/.config/bash/themes/agnoster/agnoster.bash
