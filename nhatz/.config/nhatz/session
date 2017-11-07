@@ -7,8 +7,9 @@ Que queres hacer?
 [ u ] Update
 [ o ] Autoremove
 [ k ] List Available Updates
-[ w ] Feh current wallpaper
 [ s ] Stack Overflow
+[ w ] Feh current wallpaper
+[ g ] Screencast
 [ c ] Compton
 [ r ] Reboot
 [ q ] End Session
@@ -35,6 +36,9 @@ EOF
             S|s)
                 read -p ":> " query;
                 socli $query | less
+            ;;
+            G|g)
+                screc -gr $(date +%c | sed s"/ /_/g" | sed s"/:/_/g");
             ;;
             C|c)
                 compton_toggle;
