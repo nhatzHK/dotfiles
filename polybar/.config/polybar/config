@@ -45,6 +45,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
+;font-0 = Source Code Pro for Powerline:pixelsize=8;1
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=true;0
 font-2 = Wuncon Siji:pixelsize=20;1
@@ -274,6 +275,7 @@ exec-if = $HOME/.config/polybar/screensaver_on
 format = 
 exec = echo "a"
 
+
 [module/volume]
 type = internal/volume
 
@@ -289,10 +291,10 @@ bar-volume-width = 10
 bar-volume-foreground = #0a81f5
 bar-volume-gradient = true
 bar-volume-indicator =
-ar-volume-indicator-font =  
+bar-volume-indicator-font =  
 bar-volume-fill = ) 
 bar-volume-fill-font = 2
-bar-volume-empty = 
+bar-volume-empty =
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.background}
 

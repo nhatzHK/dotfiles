@@ -42,7 +42,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+x exec $HOME/.config/i3/lock.sh
 
 #bindsym $mod+d exec rofi -show drun -lines 5 -eh 2 -width 70 -padding 10 -opacity "90" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
-bindsym $mod+d exec "rofi -combi-modi  window,drun,run -show combi -modi combi"
+bindsym $mod+d exec "rofi -combi-modi  window,drun,run -show combi -modi combi -display-combi shadow"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -150,9 +150,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym k resize shrink width 1 px or 1 ppt
+        bindsym h resize shrink width 1 px or 1 ppt
         bindsym j resize grow height 1 px or 1 ppt
-        bindsym h resize shrink height 1 px or 1 ppt
+        bindsym k resize shrink height 1 px or 1 ppt
         bindsym l resize grow width 1 px or 1 ppt
 
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -189,27 +189,36 @@ bindsym $alt+Shift+r exec killall polybar; exec /usr/bin/wal -t -i $HOME/Picture
 # Relaunch bar
 bindsym $alt+Shift+b exec killall polybar; exec $HOME/.config/polybar/launch.sh
 
-# Tap to click
+# FIXME: libinput Tap to click
 exec xinput set-prop 11 277 1    # Activate tap to click
 
 # Compton
 # exec_always killall compton; compton --config $HOME/.config/compton.conf
 
 # Launch apps
+exec dunst
 exec firefox
 exec discord-canary
+exec redshift
 
-## No border
+##
+## Rules
+##
+
+# No border
 hide_edge_borders both
 for_window [class="^.*"] border pixel 0
+
+# gifview is better in floating mode
+for_window [class="^gifview$"] floating enable
 
 # Assign windows to workspaces
 #assign [class="^Firefox$"] $web
 assign [class="^discord-canary$"] $chat
-assign [class="^Netbeans IDE 8.2$"] $code
+assign [class="Netbeans IDE"] $code
 assign [title="^Java$"] $code
 assign [class="^[vV]lc$"] $media
-assign [class="^Kodi$"] $media
+assign [class="Kodi"] $media
 
 # Screens 
 #workspace 4 output HDMI1
