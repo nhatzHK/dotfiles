@@ -103,12 +103,12 @@ filetype indent on
 set mouse=
 
 " Pluggins
-call plug#begin('~/.vim/plugin')
+" call plug#begin('~/.vim/plugin')
 
 " Plug 'lervag/vimtex' " For LaTeX files
-Plug 'sirtaj/vim-openscad' " Syntax highlighting for openscad
+" Plug 'sirtaj/vim-openscad' " Syntax highlighting for openscad
 
-call plug#end()
+" call plug#end()
 
 " Gui font
 set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
