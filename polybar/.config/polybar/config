@@ -395,7 +395,7 @@ margin-bottom = 0
 [module/pacman]
 type = custom/script
 format = <label>
-exec = /home/nhatz/.config/polybar/updates
+exec = $HOME/.config/polybar/updates
 exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
 interval = 60
 format-foreground = ${colors.cyan}
