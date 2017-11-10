@@ -266,7 +266,7 @@ label = %date%
 [module/weather]
 type = custom/script
 interval = 600
-exec = weather bar
+exec = $HOME/.config/polybar/weather bar
 
 [module/screensaver]
 type = custom/script
