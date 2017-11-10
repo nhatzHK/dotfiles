@@ -1,0 +1,3 @@
+[submodule "bash/.config/bash/themes/agnoster"]
+	path = bash/.config/bash/themes/agnoster
+	url = https://github.com/speedenator/agnoster-bash
