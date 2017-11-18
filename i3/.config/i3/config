@@ -190,8 +190,11 @@ bindsym $alt+Shift+r exec killall polybar; exec /usr/bin/wal -t -i $HOME/Picture
 bindsym $alt+Shift+b exec killall polybar; exec $HOME/.config/polybar/launch.sh
 
 # libinput
-exec xinput set-prop "Synaptics TM3096-001" "libinput Tapping Enabled" 1
-exec xinput set-prop "Synaptics TM3096-001" "libinput Disable While Typing Enabled" 0
+exec xinput set-prop "Synaptics TM3072-003" "libinput Tapping Enabled" 1
+exec xinput set-prop "Synaptics TM3072-003" "libinput Disable While Typing Enabled" 0
+
+# swapcaps
+exec setxkbmap -option 'ctrl:swapcaps'
 
 # Compton
 # exec_always killall compton; compton --config $HOME/.config/compton.conf
