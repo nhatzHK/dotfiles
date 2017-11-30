@@ -239,16 +239,17 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#222222"
-    foreground = "#888888"
+    background = "#121529"
+    foreground = "#4A4D54"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     icon = /usr/share/icons/Adwaita/16x16/emotes/face-smile.png
 
 [urgency_normal]
-    background = "#285577"
-    foreground = "#ffffff"
-    timeout = 10
+    background = "#121529"
+    foreground = "#DD8E5F"
+    frame_color = "#DD8E5F"
+    timeout = 15
     # Icon for notifications with normal urgency, uncomment to enable
     icon = /usr/share/icons/Adwaita/16x16/emotes/face-uncertain.png
 
