@@ -62,7 +62,7 @@ export HISTTIMEFORMAT='%s'
 shopt -s histappend
 
 # Import colorscheme from 'wal'
-(wal -r &)
+(wal -rt &)
 
 #Alias file
 if [ -f ~/.bash_aliases ]; then
