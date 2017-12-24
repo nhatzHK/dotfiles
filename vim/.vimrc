@@ -78,7 +78,7 @@ set expandtab ts=4 sw=4 ai
 set softtabstop=4
 
 " Swap directory
-set directory=$HOME/.vim/swapdir//
+set directory=$HOME/.vim/swapdir/
 
 set textwidth=80
 
