@@ -1,7 +1,7 @@
 #!//usr/bin/bash
 
-path='$HOME/.config/i3/'
-lock='$HOME/.config/i3/lock.png'
+path='/tmp/'
+lock='/opt/nhatz/lock.png'
 
 xset +dpms s 15
 scrot ${path}locked_screen.png

@@ -1,0 +1,27 @@
+#!/usr/bin/bash
+
+PROMPT="[Nhatz: pac_orphans]"
+
+#Find and print packages that are not need by any other packages
+function NO_STRING_LIST {
+    printf "${PROMPT} No string attached packages: $(pacman -Qet | wc -l) \n"
+}
+
+#find and uninstall packages installed as dependencies that are not needed anymore
+function ORPHANS {
+	#arguments to pass to pacman -Rns
+	args=$(pacman -Qtdq)
+
+	a=${args[@]}
+	echo $a
+	
+	printf "${PROMPT} Orphan packages: ${#a} \n"
+    
+    if [ ${#a} -ne 0 ]; then
+	    printf "${PROMPT} Removing orphans packages...\n"
+		sudo pacman -Rns $args
+	fi
+}
+
+ORPHANS
+NO_STRING_LIST
