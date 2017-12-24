@@ -190,8 +190,10 @@ bindsym $alt+Shift+r exec killall polybar; exec /usr/bin/wal -t -i $HOME/Picture
 bindsym $alt+Shift+b exec killall polybar; exec $HOME/.config/polybar/launch.sh
 
 # libinput
-exec xinput set-prop "Synaptics TM3096-001" "libinput Tapping Enabled" 1
-exec xinput set-prop "Synaptics TM3096-001" "libinput Disable While Typing Enabled" 0
+exec xinput set-prop "Synaptics TM3072-003" "libinput Disable While Typing Enabled" 0
+
+# swapcaps
+exec setxkbmap -option 'ctrl:swapcaps'
 
 # Compton
 # exec_always killall compton; compton --config $HOME/.config/compton.conf
@@ -242,22 +244,26 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute alsa_output.pci-0
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness f12
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness f11
 
+# Keyboard backlight
+bindsym $mod+XF86MonBrightnessUp exec kbacklight + # increase screen brightness f12
+bindsym $mod+XF86MonBrightnessDown exec kbacklight - # decrease screen brightness f11
+
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause # f5
-bindsym XF86AudioNext exec playerctl next # f6
-bindsym XF86AudioPrev exec playerctl previous #f4
-bindsym $mod+XF86AudioNext exec playerctl position 10+
-bindsym $mod+XF86AudioPrev exec playerctl position 10-
+# bindsym XF86AudioPlay exec playerctl play-pause # f5
+# bindsym XF86AudioNext exec playerctl next # f6
+# bindsym XF86AudioPrev exec playerctl previous #f4
+# bindsym $mod+XF86AudioNext exec playerctl position 10+
+# bindsym $mod+XF86AudioPrev exec playerctl position 10-
 
 #
 # Screenshot
 #
 
 # Capture selected windows
-bindsym $mod+Print exec $HOME/.config/i3/screenshot/selection
+bindsym $mod+XF86Display exec $HOME/.config/i3/screenshot/selection
 
 # Capture whole screen
-bindsym Print exec $HOME/.config/i3/screenshot/screen
+bindsym XF86Display exec $HOME/.config/i3/screenshot/screen
 
 # Gaps
 # gaps outer 2

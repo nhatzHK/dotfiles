@@ -6,6 +6,7 @@ cat << EOF
 Que queres hacer?
 [ u ] Update
 [ o ] Autoremove
+[ a ] Clear Pacman Cache
 [ k ] List Available Updates
 [ s ] Stack Overflow
 [ w ] Feh current wallpaper
@@ -27,6 +28,9 @@ EOF
             K|k)
                 checkupdates;
                 cower -u
+            ;;
+            A|a)
+                yes | pacaur -Sc;
             ;;
             W|w)
                 feh -xdpq --scale-down $(cat $HOME/.cache/wal/wal);
