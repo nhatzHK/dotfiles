@@ -8,6 +8,7 @@ Que queres hacer?
 [ o ] Autoremove
 [ a ] Clear Pacman Cache
 [ k ] List Available Updates
+[ m ] Rank mirrors
 [ s ] Stack Overflow
 [ w ] Feh current wallpaper
 [ g ] Screencast
@@ -25,21 +26,25 @@ EOF
             O|o)
                 pac_orphans;
             ;;
+            A|a)
+                yes | pacaur -Sc;
+            ;;
             K|k)
                 checkupdates;
                 cower -u
             ;;
-            A|a)
-                yes | pacaur -Sc;
+            M|m)
+                sudo cp /etc/pacman.d/mirrorlist /tmp/mirrorlist
+                sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+            ;;
+            S|s)
+                read -p ":> " query;
+                socli $query | less
             ;;
             W|w)
                 feh -xdpq --scale-down $(cat $HOME/.cache/wal/wal);
                 cat $HOME/.cache/wal/wal;
                 printf "\n";
-            ;;
-            S|s)
-                read -p ":> " query;
-                socli $query | less
             ;;
             G|g)
                 screc -gr $(date +%c | sed s"/ /_/g" | sed s"/:/_/g");

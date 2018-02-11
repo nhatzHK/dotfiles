@@ -1,5 +1,5 @@
 [options]
-font = Source Code Pro for Powerline 10
+font = TamzenForPowerline 12
 
 [colors]
 background = rgba(0, 0, 0, 0.5)

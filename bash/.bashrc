@@ -11,7 +11,7 @@ GIT='$(__git_ps1 " (%s)")'
 # Usual-basic prompt
 PROMPT="[\u@\h \W${GIT}]\$ "
 
-# Colours sequences (tput) 
+# Colours sequences (tput)
 GREEN="\[$(tput setaf 2)\]"
 BLUE="\[$(tput setaf 4)\]"
 YELLOW="\[$(tput setaf 3)\]"
@@ -60,8 +60,6 @@ export HISTFILESIZE=100000
 export HISTCONTROL=ignoreboth
 export HISTTIMEFORMAT='%s'
 shopt -s histappend
-
-export __JAVA_AWT_WM_REPARENTING=1
 
 # Import colorscheme from 'wal'
 (wal -rt &)

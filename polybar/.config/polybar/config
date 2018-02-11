@@ -46,10 +46,11 @@ module-margin-left = 1
 module-margin-right = 2
 
 ;font-0 = Source Code Pro for Powerline:pixelsize=8;1
-font-0 = fixed:pixelsize=10;1
+font-0 = fixed:pixelsixe=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=true;0
 font-2 = Wuncon Siji:pixelsize=20;1
-font-3 = fontawesome:pixelsize=10;1
+font-3 = FontAwesome:style=Regular:size=10;1
+font-4 = material\-wifi:style=Regular:size=12;0
 
 modules-left = xwindow i3
 modules-center = screensaver date weather
@@ -114,13 +115,16 @@ wrapping-scroll = false
 strip-wsnumbers = true
 
 ; workspaces icons
-ws-icon-1 = web;""
-ws-icon-2 = chat;""
-ws-icon-0 = media;""
-ws-icon-6 = term;""
-ws-icon-7 = doc;""
-ws-icon-8 = code;""
-ws-icon-9 = scribus;""
+ws-icon-1 = tux;""
+ws-icon-2 = random;""
+ws-icon-3 = chat;""
+ws-icon-4 = calendar;""
+ws-icon-5 = email;":
+ws-icon-6 = doc;""
+ws-icon-7 = code;""
+ws-icon-8 = scribus;""
+ws-icon-9 = gaymes;""
+ws-icon-10 = media;""
 
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
@@ -168,12 +172,17 @@ type = internal/xbacklight
 
 format = <ramp>
 
+;ramp-0 = 
+;ramp-1 = 
+;ramp-2 = 
+;ramp-3 = 
+;ramp-4 = 
 ramp-0 = 🌕
 ramp-1 = 🌔
 ramp-2 = 🌓
 ramp-3 = 🌒
 ramp-4 = 🌑
-ramp-foreground = ${colors.green}
+;ramp-foreground = ${colors.green}
 
 [module/backlight-acpi]
 inherit = module/xbacklight
@@ -229,13 +238,13 @@ format-disconnected = <label-disconnected>
 label-disconnected = 
 label-disconnected-foreground = ${colors.red}
 
-ramp-signal-0 = 
+ramp-signal-0 = ""
 ramp-signal-0-foreground = ${colors.red}
-ramp-signal-1 = 
+ramp-signal-1 = ""
 ramp-signal-1-foreground = ${colors.magenta}
-ramp-signal-2 = 
+ramp-signal-2 = ""
 ramp-signal-2-foreground = ${colors.yellow}
-ramp-signal-3 = 
+ramp-signal-3 = ""
 ramp-signal-3-foreground = ${colors.blue}
 
 [module/eth]
@@ -272,31 +281,33 @@ exec = $HOME/.config/polybar/weather bar
 type = custom/script
 interval = 1
 exec-if = $HOME/.config/polybar/screensaver_on
-format = 
+format = 
 exec = echo "a"
 
 
 [module/volume]
 type = internal/volume
 
-format-volume = <label-volume> <bar-volume>
-label-volume = 
+format-volume = <label-volume><bar-volume>
+label-volume = ﻿
 label-volume-foreground = ${colors.blue}
 
-format-muted-prefix = 
+format-muted-prefix = 
+format-muted-prefix-font-size = 20
 format-muted-foreground = ${colors.red}
-label-muted = ﻿ 
+label-muted = 
 
-bar-volume-width = 10
+bar-volume-width = 5
 bar-volume-foreground = #0a81f5
 bar-volume-gradient = true
-bar-volume-indicator =
+bar-volume-indicator = ﻿
 bar-volume-indicator-font =  
-bar-volume-fill = ) 
-bar-volume-fill-font = 2
-bar-volume-empty =
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.background}
+bar-volume-fill = 
+bar-volume-fill-font = 1
+bar-volume-fill-foreground = ${colors.blue}
+bar-volume-empty = ─
+bar-volume-empty-font = 1
+bar-volume-empty-foreground = ${colors.blue}
 
 [module/battery]
 type = internal/battery

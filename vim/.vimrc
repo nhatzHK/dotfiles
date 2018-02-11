@@ -11,41 +11,41 @@
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
-  finish
+    finish
 endif
 
 " Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
 
 if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
+    set nobackup		" do not keep a backup file, use versions instead
 else
-  set backup		" keep a backup file (restore to previous version)
-  if has('persistent_undo')
-    set undofile	" keep an undo file (undo changes after closing)
-  endif
+    set backup		" keep a backup file (restore to previous version)
+    if has('persistent_undo')
+        set undofile	" keep an undo file (undo changes after closing)
+    endif
 endif
 
 if &t_Co > 2 || has("gui_running")
-  " Switch on highlighting the last used search pattern.
-  set hlsearch
+    " Switch on highlighting the last used search pattern.
+    set hlsearch
 endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-    au!
+    " Put these in an autocmd group, so that we can delete them easily.
+    augroup vimrcEx
+        au!
 
-    " For all text files set 'textwidth' to 78 characters.
-    autocmd FileType text setlocal textwidth=78
+        " For all text files set 'textwidth' to 78 characters.
+        autocmd FileType text setlocal textwidth=78
 
-  augroup END
+    augroup END
 
 else
 
-  set autoindent		" always set autoindenting on
+    set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
 
@@ -54,7 +54,7 @@ endif " has("autocmd")
 " The matchit plugin makes the % command work better, but it is not backwards
 " compatible.
 if has('syntax') && has('eval')
-  packadd matchit
+    packadd matchit
 endif
 
 " Number madness
@@ -62,16 +62,16 @@ endif
 set number
 
 function! NumberToggle()
-  if(&relativenumber == 1)
-    set rnu!
-  else
-    set rnu
-  endif
+    if(&relativenumber == 1)
+        set rnu!
+    else
+        set rnu
+    endif
 endfunc
 
 nnoremap <C-n> :call NumberToggle()<cr>
 
-" End numbers 
+" End numbers
 
 " Tabs
 set expandtab ts=4 sw=4 ai
@@ -86,36 +86,78 @@ set textwidth=80
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor="latex"
 set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
+
 filetype plugin on
 filetype indent on
 
 " Arrow keys
-" noremap  <Up> ""
-" noremap! <Up> <Esc>
-" noremap  <Down> ""
-" noremap! <Down> <Esc>
-" noremap  <Left> ""
-" noremap! <Left> <Esc>
-" noremap  <Right> ""
-" noremap! <Right> <Esc>
+noremap  <Up> ""
+noremap! <Up> <Esc>
+noremap  <Down> ""
+noremap! <Down> <Esc>
+noremap  <Left> ""
+noremap! <Left> <Esc>
+noremap  <Right> ""
+noremap! <Right> <Esc>
 
-" Mouse
+" quick format
+
+map <C-f> m`gg=G``
+"" Mouse
 set mouse=
 
-" Pluggins
-" call plug#begin('~/.vim/plugin')
+"" Plugins
+call plug#begin('~/.vim/plugged')
 
-" Plug 'lervag/vimtex' " For LaTeX files
-" Plug 'sirtaj/vim-openscad' " Syntax highlighting for openscad
+Plug 'thaerkh/vim-workspace'
+Plug 'lervag/vimtex' " For LaTeX files
+Plug 'sirtaj/vim-openscad' " Syntax highlighting for openscad
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 
-" call plug#end()
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
-" Gui font
+call plug#end()
+
+"" Gui font
 set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
 
-" Status line
+"" Status line
 let g:powerline_pycmd="py3"
 set ls=2
 
+"" Vim workspace
+let g:workspace_autocreate =1
+nnoremap <leader>s :ToggleWorkspace<CR>
+
+"" vim-tex
+" let g:vimtex_view_method="evince"
+let g:tex_flavor="latex"
+
+"" deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_start_length = 1
+set completeopt+=noinsert
+
+"" neosnippet
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+
+" For conceal markers.
+if has('conceal')
+    set conceallevel=2 concealcursor=niv
+endif
+
 " Do what I mean dammit
-command DWIM w !sudo tee % >/dev/null
+command! DWIM w !sudo tee % >/dev/null

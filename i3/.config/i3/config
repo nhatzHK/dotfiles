@@ -55,12 +55,6 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
@@ -100,50 +94,106 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Wokspace variables names
-set $web "1:"
-set $chat "2:"
-set $media "0:"
-set $scribus "9:"
-set $code "8:"
-set $term "6:"
-set $doc "7:"
+set $tux "1:"
+set $random "2:"
+set $chat "3:"
+set $calendar "4:"
+set $email "5:"
+set $doc "6:"
+set $code "7:"
+set $scribus "8:"
+set $gaymes "9:"
+set $media "10:"
+
+set $tu_x "11:"
+set $rando_m "12:"
+set $cha_t "13:"
+set $calenda_r "14:"
+set $emai_l "15:"
+set $do_c "16:"
+set $cod_e "17:"
+set $scribu_s "18:"
+set $gayme_s "19:"
+set $medi_a "20:"
+
+
+# eDP1 workspaces
+workspace $tux output eDP1
+workspace $chat output eDP1
+workspace $random output eDP1
+workspace $calendar output eDP1
+workspace $email output eDP1
+workspace $doc output eDP1
+workspace $code output eDP1
+workspace $scribus output eDP1
+workspace $gaymes output eDP1
+workspace $media output eDP1
+
+# HDMI workspaces
+workspace $tu_x output HDMI2
+workspace $cha_t output HDMI2
+workspace $rando_m output HDMI2
+workspace $calenda_r output HDMI2
+workspace $emai_l output HDMI2
+workspace $do_c output HDMI2
+workspace $cod_e output HDMI2
+workspace $scribu_s output HDMI2
+workspace $gayme_s output HDMI2
+workspace $medi_a output HDMI2
 
 # switch to workspace
-bindsym $alt+1 workspace $web
-bindsym $alt+2 workspace $chat
-bindsym $alt+3 workspace 3
-bindsym $alt+4 workspace 4
-bindsym $alt+5 workspace 5
-bindsym $alt+6 workspace $term
-bindsym $alt+7 workspace $doc
-bindsym $alt+8 workspace $code
-bindsym $alt+9 workspace $scribus
-bindsym $alt+0 workspace $media
-bindsym $alt+l workspace next
-bindsym $alt+h workspace prev
+bindsym $alt+h workspace $tux
+bindsym $alt+w workspace $chat
+bindsym $alt+u workspace $random
+bindsym $alt+t workspace $calendar
+bindsym $alt+e workspace $email
+bindsym $alt+d workspace $doc
+bindsym $alt+c workspace $code
+bindsym $alt+i workspace $scribus
+bindsym $alt+g workspace $gaymes
+bindsym $alt+m workspace $media
+
+
+bindsym $mod+$alt+h workspace $tu_x
+bindsym $mod+$alt+w workspace $cha_t
+bindsym $mod+$alt+u workspace $rando_m
+bindsym $mod+$alt+t workspace $calenda_r
+bindsym $mod+$alt+e workspace $emai_l
+bindsym $mod+$alt+d workspace $do_c
+bindsym $mod+$alt+c workspace $cod_e
+bindsym $mod+$alt+i workspace $scribu_s
+bindsym $mod+$alt+g workspace $gayme_s
+bindsym $mod+$alt+m workspace $medi_a
+bindsym $mod+Right workspace next
+bindsym $mod+Left workspace prev
 
 # move focused container to workspace
-bindsym $alt+Shift+1 move container to workspace $web
-bindsym $alt+Shift+2 move container to workspace $chat
-bindsym $alt+Shift+3 move container to workspace 3
-bindsym $alt+Shift+4 move container to workspace 4
-bindsym $alt+Shift+5 move container to workspace 5
-bindsym $alt+Shift+6 move container to workspace $term
-bindsym $alt+Shift+7 move container to workspace $doc
-bindsym $alt+Shift+8 move container to workspace $code
-bindsym $alt+Shift+9 move container to workspace $scribus
-bindsym $alt+Shift+0 move container to workspace $media 
-bindsym $alt+Shift+l move container to workspace next
-bindsym $alt+Shift+h move container to workspace prev
+bindsym $alt+Shift+h move container to workspace $tux 
+bindsym $alt+Shift+w move container to workspace $chat
+bindsym $alt+Shift+u move container to workspace $random
+bindsym $alt+Shift+t move container to workspace $calendar
+bindsym $alt+Shift+e move container to workspace $email
+bindsym $alt+Shift+d move container to workspace $doc
+bindsym $alt+Shift+c move container to workspace $code
+bindsym $alt+Shift+i move container to workspace $scribus
+bindsym $alt+Shift+g move container to workspace $gaymes
+bindsym $alt+Shift+m move container to workspace $media 
+bindsym $alt+Shift+Right move container to workspace next
+bindsym $alt+Shift+Left move container to workspace prev
+bindsym $alt+$mod+Shift+h move container to workspace $tu_x 
+bindsym $alt+$mod+Shift+w move container to workspace $cha_t
+bindsym $alt+$mod+Shift+u move container to workspace $rando_m
+bindsym $alt+$mod+Shift+t move container to workspace $calenda_r
+bindsym $alt+$mod+Shift+e move container to workspace $emai_l
+bindsym $alt+$mod+Shift+d move container to workspace $do_c
+bindsym $alt+$mod+Shift+c move container to workspace $cod_e
+bindsym $alt+$mod+Shift+i move container to workspace $scribu_s
+bindsym $alt+$mod+Shift+g move container to workspace $gayme_s
+bindsym $alt+$mod+Shift+m move container to workspace $medi_a
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-# reboot with new kernel
-bindsym $mod+Shift+s exec systemctl kexec
-# reload current bar
-bindsym $mod+Shift+p exec killall polybar; exec "polybar -r shadow &"
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -183,11 +233,12 @@ client.urgent 		    $urgent-bg-color 	    $urgent-bg-color 	$text-color
 ## Startup ##
 
 # Wallpaper; Polybar
-exec_always killall polybar; /usr/bin/wal -t -i $HOME/.config/i3/wallpaper -o $HOME/.config/polybar/launch.sh
-bindsym $alt+r exec killall polybar; exec /usr/bin/wal -t -i $HOME/.config/i3/wallpaper -o $HOME/.config/polybar/launch.sh
-bindsym $alt+Shift+r exec killall polybar; exec /usr/bin/wal -t -i $HOME/Pictures/Wallpapers/Autumn -o $HOME/.config/polybar/launch.sh
+exec_always killall polybar; exec /usr/bin/wal -t -i $HOME/.config/i3/wallpaper0 -o $HOME/.config/polybar/launch.sh
+# Relaunch whole visual setup
+bindsym $mod+Shift+r exec i3 restart
+bindsym $alt+Shift+r exec killall polybar; exec /usr/bin/wal -t -i $HOME/.config/i3/wallpaper0 -o $HOME/.config/polybar/launch.sh
 # Relaunch bar
-bindsym $alt+Shift+b exec killall polybar; exec $HOME/.config/polybar/launch.sh
+bindsym $alt+Shift+p exec killall polybar; exec $HOME/.config/polybar/launch.sh
 
 # libinput
 exec xinput set-prop "Synaptics TM3072-003" "libinput Disable While Typing Enabled" 0
