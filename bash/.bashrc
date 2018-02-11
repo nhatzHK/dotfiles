@@ -49,10 +49,6 @@ man () {
 	command man "$@"
 }
 
-#locally created/compiled scripts, games and utilities
-export PATH="$PATH:/opt:$HOME/.gem/ruby/2.4.0/bin:$HOME/.local/bin"
-
-
 export EDITOR=vim
 
 export HISTSIZE=1000
