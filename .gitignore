@@ -10,3 +10,10 @@
 
 # D'uh
 IGNORE
+
+# emacs stuff
+.emacs.d/
+
+# vim session
+Session.vim
+.undodir/
